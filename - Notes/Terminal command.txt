@@ -1,0 +1,3 @@
+
+ - ' node -v ' - check version of node.js
+ - ' npm -v '
