@@ -1,4 +1,4 @@
-// ***   typing of variables   *** //
+// *  typing of variables  * //
 
 const greeting: string = 'Hello'
 console.log(greeting)
@@ -9,7 +9,7 @@ console.log(greeting3)
 const greeting4: boolean = false
 console.log(greeting4)
 
-// ***   typing of array  *** //
+// *  typing of array  * //
 
 const funcTyping = (names: string[], number: number, status: boolean): number => {
     console.log(names, number, status)
@@ -17,7 +17,7 @@ const funcTyping = (names: string[], number: number, status: boolean): number =>
 }
 funcTyping(['name', 'name'], 1, true)
 
-// ***   interfaces  *** //
+// *  interfaces  * //
 
 interface IUser<T> {
     name: string,
@@ -38,25 +38,38 @@ const getAge = (data: IUser<number[]>): number => {
 console.log(getName(user));
 console.log(getAge(user2))
 
-// Partial //
+// *  Partial  * //
 
 const user3: Partial<IUser<boolean>> = {name: 'max'}
 const user4: Partial<IUser<any>> = {data: ['asd', 'qwe', 'zxc']}
 console.log(user3)
 console.log(user4);
 
-// ***   typing of class   *** //
-// ***   access modifiers   *** //
-// ***   getters and setters   *** //
+// *  typing of class  * //
+// *  access modifiers  * //
+// *  getters and setters  * //
 
 class User {
-    constructor(private name: string,public age: number, protected status: boolean) {
+    constructor(private _name: string, public age: number, protected status: boolean) {
     }
 
+
+    get name(): string {
+        return this._name;
+    }
+
+    set name(value: string) {
+        this._name = value;
+    }
 }
-const user5 = new User('max',15,true);
+
+const user5 = new User('max', 15, true);
 console.log(user5)
-// const user6:User = {name:'Anastasiya',age:25,status:false}
+user5.name = 'Ivan'
+console.log(user5.name)
+
+// *  abstract classes and abstract methods  * //
+
 
 
 

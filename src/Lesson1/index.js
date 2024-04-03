@@ -28,15 +28,29 @@ var user3 = { name: 'max' };
 var user4 = { data: ['asd', 'qwe', 'zxc'] };
 console.log(user3);
 console.log(user4);
-// ***   typing of class and access modifiers *** //
+// ***   typing of class   *** //
+// ***   access modifiers   *** //
+// ***   getters and setters   *** //
 var User = /** @class */ (function () {
-    function User(name, age, status) {
-        this.name = name;
+    function User(_name, age, status) {
+        this._name = _name;
         this.age = age;
         this.status = status;
     }
+    Object.defineProperty(User.prototype, "name", {
+        get: function () {
+            return this._name;
+        },
+        set: function (value) {
+            this._name = value;
+        },
+        enumerable: false,
+        configurable: true
+    });
     return User;
 }());
 var user5 = new User('max', 15, true);
 console.log(user5);
+user5.name = 'Ivan';
+console.log(user5.name);
 // const user6:User = {name:'Anastasiya',age:25,status:false}
