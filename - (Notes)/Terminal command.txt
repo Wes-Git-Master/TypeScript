@@ -1,0 +1,6 @@
+
+ - ' node -v ' - check version of node.js.
+ - ' npm -v ' - check version of npm.
+ - ' npm init ' - initialising the node.
+ - ' tsc src/index.ts ' - compilation of ts file in type script
+ - ' node src/index.js ' - візуалізація консолі js файлу в терміналі.

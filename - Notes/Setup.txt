@@ -1,5 +1,0 @@
-
- -  https://github.com/DemchyshynV/jan-2024-ts - a link to the mentor's gitHub ( 'Vitaliy Demchyshyn' )
- - 'https://nodejs.org/en' - to work with type script you need to install node.js !!!
- -  to check the version of node and whether it is installed at all,
-    need to enter the command 'node -v' in the terminal.

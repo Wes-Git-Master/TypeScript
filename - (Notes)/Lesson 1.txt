@@ -1,0 +1,5 @@
+
+ - Type script це типізований java script
+
+
+
