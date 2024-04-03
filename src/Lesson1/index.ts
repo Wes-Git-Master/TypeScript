@@ -70,6 +70,134 @@ console.log(user5.name)
 
 // *  abstract classes and abstract methods  * //
 
+abstract class Shape {
+    abstract perimeter(): number
+
+    abstract area(): number
+}
+
+class Rectangle extends Shape {
+    constructor(private a: number, private b: number) {
+        super();
+    }
+
+    area(): number {
+        return this.a * this.b;
+    }
+
+    perimeter(): number {
+        return (this.a + this.b) * 2;
+    }
+
+}
+
+class Triangle extends Shape {
+    constructor(private a: number, private b: number, private c: number) {
+        super();
+    }
+
+    area(): number {
+        return this.b * this.b / 2 * this.c;
+    }
+
+    perimeter(): number {
+        return this.a + this.b + this.c;
+    }
+
+}
+
+const shapes: Shape[] = [
+    new Triangle(2, 5, 10),
+    new Rectangle(2, 60),
+    new Triangle(10, 20, 30)
+]
+
+for (let shape of shapes) {
+    console.log('p = ' + shape.perimeter());
+    console.log('a = ' + shape.area());
+
+}
+
+// *  interfaces / implements * //
 
 
+abstract class Shape2 {
+    abstract perimeter(): number
+}
 
+interface ITools {
+    area: () => number
+    perimeter: () => number
+    greeting: () => void
+}
+
+
+class Rectangle2 implements ITools {
+    constructor(private a: number, private b: number) {
+
+    }
+
+    perimeter(): number {
+        return (this.a + this.b) * 2;
+    }
+
+    area(): number {
+        return 0;
+    }
+
+    greeting(): void {
+        console.log('hello Rectangle2')
+    }
+
+}
+
+class Triangle2 implements ITools {
+    constructor(private a: number, private b: number, private c: number) {
+
+    }
+
+    perimeter(): number {
+        return (this.a + this.b) * 2;
+    }
+
+    area(): number {
+        return 0;
+    }
+
+    greeting(): void {
+        console.log('hello Triangle2')
+    }
+
+
+}
+
+const shapes2: ITools[] = [
+    new Triangle2(2, 5, 10),
+    new Rectangle2(3, 60),
+    new Triangle2(10, 20, 30)
+]
+
+for (let shape of shapes2) {
+    console.log('p = ' + shape.perimeter());
+    console.log('a = ' + shape.area());
+    shape.greeting();
+}
+
+// *  embeddedness * //
+
+interface IAddress {
+    city: string,
+    house: number
+}
+
+interface IUser2 {
+    addresses: IAddress[]
+    name: 'Max'
+}
+interface IUser2{
+    addresses:{
+        city:string,
+        house:number
+    }[],
+    name:'Max'
+}
