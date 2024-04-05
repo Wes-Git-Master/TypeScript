@@ -8,7 +8,7 @@
     "allowSyntheticDefaultImports": true,
     "target": "es2021",
     "sourceMap": true,
-    "outDir": "./src/lesson2/dist",
+    "outDir": "./src/Lesson2/dist",
     "baseUrl": "./",
     "incremental": true,
     "skipLibCheck": true,
