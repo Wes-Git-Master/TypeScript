@@ -6,9 +6,15 @@ class UserService0 {
 UserService0.greeting();
 class UserService {
     static getAll() {
-        return JSON.parse(localStorage.getItem(this._userKey)) || [];
+        return JSON.parse(localStorage.getItem(this._userKey)) || [
+            { id: 1, name: 'Max', age: 5 }
+        ];
     }
     static create(data) {
+        const users = this.getAll();
+        const id = users.length ? users.slice(-1)[0].id + 1 : 1;
+        users.push({ id, ...data });
+        this.setToStorage(users);
     }
     static showHtml() {
         const userContainer = document.querySelector('#userContainer');
@@ -28,7 +34,16 @@ class UserService {
             userContainer.innerText = 'Users not exists';
         }
     }
+    static setToStorage(data) {
+        localStorage.setItem(this._userKey, JSON.stringify(data));
+    }
 }
 UserService._userKey = 'users';
 UserService.showHtml();
+const form = document.forms['userForm'];
+form.onsubmit = (e) => {
+    e.preventDefault();
+    const { name: nameInput, age: ageInput } = form;
+    UserService.create({ name: nameInput.value, age: ageInput.value });
+};
 //# sourceMappingURL=index.js.map

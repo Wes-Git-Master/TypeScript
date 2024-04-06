@@ -11,4 +11,10 @@ declare class UserService {
     private static getAll;
     static create(data: IUser): void;
     static showHtml(): void;
+    private static setToStorage;
+}
+declare const form: HTMLFormElement;
+interface IInput {
+    name: HTMLInputElement;
+    age: HTMLInputElement;
 }
